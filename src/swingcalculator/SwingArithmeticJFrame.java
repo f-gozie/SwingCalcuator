@@ -70,9 +70,19 @@ public class SwingArithmeticJFrame extends javax.swing.JFrame {
 
         multiply.setText("*");
         multiply.setName("multiply"); // NOI18N
+        multiply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiplyActionPerformed(evt);
+            }
+        });
 
         modulos.setText("%");
         modulos.setName("modulos"); // NOI18N
+        modulos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modulosActionPerformed(evt);
+            }
+        });
 
         subtract.setText("-");
         subtract.setName("subtract"); // NOI18N
@@ -84,9 +94,19 @@ public class SwingArithmeticJFrame extends javax.swing.JFrame {
 
         divide.setText("/");
         divide.setName("divide"); // NOI18N
+        divide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                divideActionPerformed(evt);
+            }
+        });
 
         clear.setText("CLEAR");
         clear.setName("clear"); // NOI18N
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,6 +183,38 @@ public class SwingArithmeticJFrame extends javax.swing.JFrame {
         int total = firstvalue - secondvalue;
         result.setText(String.valueOf(total));
     }//GEN-LAST:event_subtractActionPerformed
+
+    private void multiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyActionPerformed
+        int firstvalue = Integer.parseInt(firstnumber.getText());
+        int secondvalue = Integer.parseInt(secondnumber.getText());
+        int total = firstvalue * secondvalue;
+        result.setText(String.valueOf(total));
+    }//GEN-LAST:event_multiplyActionPerformed
+
+    private void divideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideActionPerformed
+         double firstvalue = Double.parseDouble(firstnumber.getText());
+         double secondvalue = Double.parseDouble(secondnumber.getText());
+         double total = firstvalue / secondvalue;
+         result.setText(String.valueOf(total));
+    }//GEN-LAST:event_divideActionPerformed
+
+    private void modulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modulosActionPerformed
+          int firstvalue = Integer.parseInt(firstnumber.getText());
+          int secondvalue = Integer.parseInt(secondnumber.getText());
+          int total = firstvalue % secondvalue;
+          result.setText(String.valueOf(total));
+    }//GEN-LAST:event_modulosActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        String currentValueOfFirstNumber, currentValueOfSecondNumber;
+        currentValueOfFirstNumber = firstnumber.getText();
+        currentValueOfSecondNumber = secondnumber.getText();
+        
+        String newValue = "";
+        firstnumber.setText(newValue);
+        secondnumber.setText(newValue);
+        result.setText(newValue);
+    }//GEN-LAST:event_clearActionPerformed
 
     /**
      * @param args the command line arguments
